@@ -1,0 +1,309 @@
+"use client";
+import { ShoppingCartIcon } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+// Product data - you can move this to a separate data file later
+const PRODUCT_DATA = [
+  {
+    id: 1,
+    name: "Cute Corsage Flower",
+    price: "$29.99",
+    image: "/4.png",
+    bgColor: "bg-pink-100",
+  },
+  {
+    id: 2,
+    name: "Enchanted Garden Bouquet",
+    price: "$79.99",
+    image: "/3.png",
+    bgColor: "bg-orange-200",
+    featured: true,
+  },
+  {
+    id: 3,
+    name: "Luxury Sunshine Flower Box",
+    price: "$99.99",
+    image: "/1.png",
+    bgColor: "bg-gray-100",
+  },
+  {
+    id: 4,
+    name: "Aesthetic Home Flowers",
+    price: "$59.99",
+    image: "/2.png",
+    bgColor: "bg-pink-50",
+  },
+];
+
+export default function ListItemSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [visibleCards, setVisibleCards] = useState<boolean[]>(
+    new Array(PRODUCT_DATA.length).fill(false)
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isInView && !isVisible) {
+          setIsVisible(true);
+
+          // Stagger card animations
+          PRODUCT_DATA.forEach((_, index) => {
+            setTimeout(() => {
+              setVisibleCards((prev) => {
+                const newVisible = [...prev];
+                newVisible[index] = true;
+                return newVisible;
+              });
+            }, index * 150);
+          });
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isVisible]);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-16 px-6 lg:px-12 relative min-h-screen"
+    >
+      {/* Gradient Overlay */}
+      <div
+        className="absolute inset-0 z-2 bg-gradient-to-br from-white/95 via-white/90 to-pink-50/95 pointer-events-none"
+        style={{
+          transform: `translateY(${scrollY * 0.05}px)`,
+        }}
+      ></div>
+
+      {/* Animated Background Elements */}
+      <div
+        className="absolute inset-0 z-3 opacity-20 pointer-events-none"
+        style={{
+          transform: `translateY(${scrollY * 0.1}px)`,
+        }}
+      >
+        <div
+          className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-pink-300 to-rose-200 rounded-full blur-2xl animate-pulse"
+          style={{
+            transform: `translateX(${Math.sin(scrollY * 0.01) * 20}px)`,
+          }}
+        ></div>
+        <div
+          className="absolute top-60 right-20 w-40 h-40 bg-gradient-to-br from-orange-300 to-pink-200 rounded-full blur-2xl animate-pulse"
+          style={{
+            transform: `translateX(${Math.cos(scrollY * 0.01) * -15}px)`,
+            animationDelay: "2s",
+          }}
+        ></div>
+        <div
+          className="absolute bottom-40 left-1/3 w-36 h-36 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full blur-2xl animate-pulse"
+          style={{
+            transform: `translateY(${Math.sin(scrollY * 0.008) * 10}px)`,
+            animationDelay: "4s",
+          }}
+        ></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-20">
+        {/* Header */}
+        <div
+          ref={headerRef}
+          className={`flex justify-between items-start mb-12 transition-all duration-1000 ease-out ${
+            isVisible
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-8"
+          }`}
+          style={{
+            transform: `translateY(${isVisible ? 0 : 32}px) translateX(${
+              scrollY * -0.05
+            }px)`,
+          }}
+        >
+          <div
+            className="transform transition-all duration-1000 ease-out"
+            style={{
+              transform: `translateY(${scrollY * -0.1}px)`,
+            }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
+              Discover
+              <br />
+              Our Finest Selection
+            </h2>
+          </div>
+          <button
+            className="bg-white border-2 border-gray-300 hover:border-primary px-6 py-3 rounded-full font-semibold text-gray-700 hover:text-primary transition-all duration-300 hover:shadow-lg hover:scale-105 transform"
+            style={{
+              transform: `translateY(${scrollY * 0.05}px)`,
+            }}
+          >
+            See All Collections
+          </button>
+        </div>
+
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[5rem]">
+          {PRODUCT_DATA.map((product, index) => (
+            <div
+              key={product.id}
+              className={`group relative rounded-3xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 ${
+                visibleCards[index]
+                  ? "opacity-100 transform translate-y-0 scale-100"
+                  : "opacity-0 transform translate-y-12 scale-95"
+              }`}
+              style={{
+                transform: `translateY(${
+                  visibleCards[index]
+                    ? scrollY * (0.02 * ((index % 2) + 2))
+                    : 48
+                }px) scale(${visibleCards[index] ? 1 : 0.95})`,
+                transitionDelay: `${index * 150}ms`,
+              }}
+            >
+              {/* Product Image Container */}
+              <div
+                className={`${product.bgColor} h-[25rem] p-4  w-full rounded-[150px] mb-6 relative overflow-hidden group-hover:scale-105 transition-transform duration-300`}
+                style={{
+                  transform: `translateY(${scrollY * -0.03}px) rotateX(${
+                    scrollY * 0.01
+                  }deg)`,
+                }}
+              >
+                <div
+                  className="relative h-48 flex items-center mt-20 justify-center"
+                  style={{
+                    transform: `translateY(${scrollY * 0.01}px)`,
+                  }}
+                >
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={160}
+                    height={200}
+                    className="object-contain group-hover:scale-110 transition-transform duration-500"
+                    style={{
+                      transform: `translateY(${
+                        scrollY * (0.015 * (index % 2 === 0 ? 1 : -1))
+                      }px)`,
+                    }}
+                  />
+                </div>
+
+                {/* Cart Button */}
+                <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white hover:bg-primary text-gray-700 hover:text-white px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0">
+                  <ShoppingCartIcon className="w-4 h-4" />
+                  Cart
+                </button>
+              </div>
+
+              {/* Product Info */}
+              <div className="text-center">
+                <h3 className="font-semibold text-gray-800 text-lg mb-2 group-hover:text-primary transition-colors duration-300">
+                  {product.name}
+                </h3>
+                <p className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                  {product.price}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Enhanced Animations and Parallax Effects */}
+        <style jsx>{`
+          @keyframes gentle-float {
+            0%,
+            100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-8px);
+            }
+          }
+
+          .animate-gentle-float {
+            animation: gentle-float 3s ease-in-out infinite;
+          }
+
+          @keyframes fade-in-up {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-fade-in-up {
+            animation: fade-in-up 0.6s ease-out forwards;
+          }
+
+          @keyframes parallax-fade-in {
+            0% {
+              opacity: 0;
+              transform: translateY(60px) scale(0.9);
+            }
+            50% {
+              opacity: 0.8;
+              transform: translateY(20px) scale(0.95);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0px) scale(1);
+            }
+          }
+
+          .animate-parallax-fade-in {
+            animation: parallax-fade-in 0.8s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+          }
+
+          @keyframes wave-motion {
+            0%,
+            100% {
+              transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+              transform: translateY(-5px) rotate(1deg);
+            }
+            50% {
+              transform: translateY(-8px) rotate(0deg);
+            }
+            75% {
+              transform: translateY(-3px) rotate(-1deg);
+            }
+          }
+
+          .animate-wave-motion {
+            animation: wave-motion 4s ease-in-out infinite;
+          }
+
+          /* Smooth scrolling performance optimization */
+          * {
+            will-change: transform;
+          }
+
+          section {
+            transform: translate3d(0, 0, 0);
+          }
+        `}</style>
+      </div>
+    </section>
+  );
+}
