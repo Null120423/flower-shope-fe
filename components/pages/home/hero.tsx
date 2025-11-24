@@ -136,7 +136,6 @@ export default function Hero() {
       "Min distance:",
       minSwipeDistance
     );
-    console.log("Left swipe:", isLeftSwipe, "Right swipe:", isRightSwipe);
 
     if (isLeftSwipe) {
       console.log("Triggering handleNext()");
@@ -315,7 +314,7 @@ export default function Hero() {
 
       {/* Enhanced Swipe Instruction */}
       {!isActiveSwiping && !isTransitioning && (
-        <div className="absolute bottom-[180px] left-1/2 transform -translate-x-1/2 z-[80]">
+        <div className="absolute bottom-[290px] left-1/2 transform -translate-x-1/2 z-[80]">
           <div className="bg-white/95 backdrop-blur-md rounded-2xl px-6 py-4 shadow-xl animate-pulse hover:animate-none transition-all duration-300 hover:scale-105 border border-primary/20">
             <div className="flex flex-col items-center gap-2">
               {/* Main swipe instruction */}
@@ -548,11 +547,6 @@ export default function Hero() {
             }
           `}</style>
 
-          {/* Shop Now Button */}
-          <button className="btn-secondary pt-4 pb-4 justify-center items-center flex hover:scale-[150%] absolute top-1/2 right-[46%] left-[46%] z-[1000] pl-10 scale-125 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:scale-135 hover:-translate-y-1 active:scale-125">
-            SHOP NOW
-          </button>
-
           {/* Navigation Buttons with enhanced interactions */}
           <button
             className="btn-nav hover:scale-110 transition-all duration-300 hover:bg-primary hover:text-white z-[60]"
@@ -564,7 +558,7 @@ export default function Hero() {
 
           {/* Main Image with smooth transitions */}
           <div
-            className="overflow-hidden rounded-2xl relative transition-transform duration-100 ease-out"
+            className="overflow-hidden  w-[50vw] h-[90vh] rounded-2xl relative transition-transform duration-100 ease-out"
             style={{
               transform: isActiveSwiping
                 ? `translateX(${
@@ -577,8 +571,7 @@ export default function Hero() {
             <Image
               src={currentData.img}
               alt={currentData.name}
-              width={800}
-              height={1200}
+              fill
               className={`block transition-all duration-400 ${
                 isTransitioning
                   ? direction === "left"
@@ -630,6 +623,10 @@ export default function Hero() {
           </button>
         </div>
       </div>
+      {/* Shop Now Button */}
+      <button className="btn-secondary pt-4 pb-4 justify-center items-center flex hover:scale-[150%] absolute top-[40%] right-[46%] left-[46%] z-[900000] pl-10 scale-125 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:scale-135 hover:-translate-y-1 active:scale-125">
+        SHOP NOW
+      </button>
     </section>
   );
 }

@@ -4,7 +4,10 @@ import TransitionLink from "../ui/TransitionLink";
 
 export default function Footer() {
   return (
-    <footer id="footer" className="z-50 bg-primary p-4 text-white">
+    <footer
+      id="footer"
+      className="z-[10000] relative bg-primary p-4 text-white"
+    >
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}

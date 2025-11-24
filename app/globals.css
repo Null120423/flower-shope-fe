@@ -167,6 +167,31 @@
     animation-delay: 4s;
   }
   
+  /* New elegant loading animations */
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-expand {
+    animation: expand 1s ease-out 0.5s both;
+  }
+  
+  .animate-bounce-elegant {
+    animation: bounceElegant 1.5s infinite;
+  }
+  
+  .animate-float-slow {
+    animation: floatSlow 6s ease-in-out infinite;
+  }
+  
+  .animate-reverse {
+    animation-direction: reverse;
+  }
+  
+  .border-3 {
+    border-width: 3px;
+  }
+  
   /* Static Loading Screen optimizations */
   .static-loading {
     /* Ensure proper stacking and smooth animations */
@@ -304,6 +329,60 @@
   100% {
     width: 100%;
     opacity: 0.9;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+@keyframes expand {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes bounceElegant {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  40% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-4px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-15px) rotate(2deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-12px) rotate(1deg);
+    opacity: 0.5;
   }
 }
 

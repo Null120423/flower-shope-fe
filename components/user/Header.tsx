@@ -76,21 +76,23 @@ export default function Header() {
               </TransitionLink>
               {/* Icons */}
               <div className="flex items-center space-x-3">
-                <button className="p-2 text-slate-700 hover:text-slate-900">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                    />
-                  </svg>
-                </button>
+                <TransitionLink href="/cart">
+                  <button className="p-2 text-slate-700 hover:text-slate-900">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                      />
+                    </svg>
+                  </button>
+                </TransitionLink>
                 <button className="p-2 text-slate-700 hover:text-slate-900">
                   <svg
                     className="w-5 h-5"

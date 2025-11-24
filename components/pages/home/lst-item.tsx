@@ -1,6 +1,5 @@
 "use client";
-import { ShoppingCartIcon } from "lucide-react";
-import Image from "next/image";
+import ProductCard from "@/components/ui/ProductCard";
 import { useEffect, useRef, useState } from "react";
 
 // Product data - you can move this to a separate data file later
@@ -44,6 +43,19 @@ export default function ListItemSection() {
   const [visibleCards, setVisibleCards] = useState<boolean[]>(
     new Array(PRODUCT_DATA.length).fill(false)
   );
+
+  // Handler functions for ProductCard
+  const handleAddToCart = (productId: number) => {
+    console.log("Added to cart:", productId);
+    // Add your cart logic here
+    // Example: dispatch(addToCart(productId));
+  };
+
+  const handleProductClick = (productId: number) => {
+    console.log("Product clicked:", productId);
+    // Add navigation logic here
+    // Example: router.push(`/products/${productId}`);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -158,68 +170,15 @@ export default function ListItemSection() {
         {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[5rem]">
           {PRODUCT_DATA.map((product, index) => (
-            <div
+            <ProductCard
               key={product.id}
-              className={`group relative rounded-3xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 ${
-                visibleCards[index]
-                  ? "opacity-100 transform translate-y-0 scale-100"
-                  : "opacity-0 transform translate-y-12 scale-95"
-              }`}
-              style={{
-                transform: `translateY(${
-                  visibleCards[index]
-                    ? scrollY * (0.02 * ((index % 2) + 2))
-                    : 48
-                }px) scale(${visibleCards[index] ? 1 : 0.95})`,
-                transitionDelay: `${index * 150}ms`,
-              }}
-            >
-              {/* Product Image Container */}
-              <div
-                className={`${product.bgColor} h-[25rem] p-4  w-full rounded-[150px] mb-6 relative overflow-hidden group-hover:scale-105 transition-transform duration-300`}
-                style={{
-                  transform: `translateY(${scrollY * -0.03}px) rotateX(${
-                    scrollY * 0.01
-                  }deg)`,
-                }}
-              >
-                <div
-                  className="relative h-48 flex items-center mt-20 justify-center"
-                  style={{
-                    transform: `translateY(${scrollY * 0.01}px)`,
-                  }}
-                >
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={160}
-                    height={200}
-                    className="object-contain group-hover:scale-110 transition-transform duration-500"
-                    style={{
-                      transform: `translateY(${
-                        scrollY * (0.015 * (index % 2 === 0 ? 1 : -1))
-                      }px)`,
-                    }}
-                  />
-                </div>
-
-                {/* Cart Button */}
-                <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white hover:bg-primary text-gray-700 hover:text-white px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0">
-                  <ShoppingCartIcon className="w-4 h-4" />
-                  Cart
-                </button>
-              </div>
-
-              {/* Product Info */}
-              <div className="text-center">
-                <h3 className="font-semibold text-gray-800 text-lg mb-2 group-hover:text-primary transition-colors duration-300">
-                  {product.name}
-                </h3>
-                <p className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
-                  {product.price}
-                </p>
-              </div>
-            </div>
+              product={product}
+              index={index}
+              isVisible={visibleCards[index]}
+              scrollY={scrollY}
+              onAddToCart={handleAddToCart}
+              onClick={handleProductClick}
+            />
           ))}
         </div>
 
