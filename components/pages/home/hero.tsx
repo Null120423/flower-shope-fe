@@ -1,5 +1,6 @@
 "use client";
-import { HERO_DATA } from "@/lib/hero-data";
+
+import { HeroModel } from "@/lib/model";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -9,7 +10,7 @@ import {
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-export default function Hero() {
+export default function Hero({ heros }: { heros: HeroModel[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [direction, setDirection] = useState<"left" | "right" | null>(null);
@@ -25,7 +26,7 @@ export default function Hero() {
   const [showSwipeHint, setShowSwipeHint] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
-  const currentData = HERO_DATA[currentIndex];
+  const currentData = heros[currentIndex];
 
   // Swipe detection
   const minSwipeDistance = 75;
@@ -42,8 +43,6 @@ export default function Hero() {
     setSwipeDirection(null);
     setIsActiveSwiping(true);
     setShowSwipeHint(true);
-
-    console.log("Touch start:", e.targetTouches[0].clientX);
   };
 
   // Mouse events for desktop testing
@@ -80,13 +79,6 @@ export default function Hero() {
     } else {
       setSwipeDirection(null);
     }
-
-    console.log(
-      "Touch move - Distance:",
-      rawDistance,
-      "Direction:",
-      rawDistance > 0 ? "left" : "right"
-    );
   };
 
   const onMouseMove = (e: React.MouseEvent) => {
@@ -204,7 +196,7 @@ export default function Hero() {
     setIsTransitioning(true);
 
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % HERO_DATA.length);
+      setCurrentIndex((prev) => (prev + 1) % heros.length);
     }, 250);
 
     setTimeout(() => {
@@ -219,9 +211,7 @@ export default function Hero() {
     setIsTransitioning(true);
 
     setTimeout(() => {
-      setCurrentIndex(
-        (prev) => (prev - 1 + HERO_DATA.length) % HERO_DATA.length
-      );
+      setCurrentIndex((prev) => (prev - 1 + heros.length) % heros.length);
     }, 250);
 
     setTimeout(() => {
@@ -335,8 +325,8 @@ export default function Hero() {
 
               {/* Secondary instruction */}
               <span className="text-gray-600 font-medium text-xs">
-                Use mouse drag or touch gestures • {HERO_DATA.length}{" "}
-                collections available
+                Use mouse drag or touch gestures • {heros.length} collections
+                available
               </span>
             </div>
           </div>
@@ -588,7 +578,7 @@ export default function Hero() {
 
             {/* Carousel Indicators */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-              {HERO_DATA.map((_, index) => (
+              {heros.map((_, index) => (
                 <button
                   key={index}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${

@@ -2,6 +2,7 @@ import StaticLoadingScreen from "@/components/ui/StaticLoadingScreen";
 import Footer from "@/components/user/Footer";
 import Header from "@/components/user/Header";
 
+import InfoSection from "@/components/pages/home/info-section";
 import { LOGO, SITE_URL } from "@/lib/data";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -67,6 +68,7 @@ export default function RootLayout({
         <div className="min-h-screen bg-bg-primary text-light">
           <Header />
           {children}
+          <InfoSection />
           <Footer />
           {/* <FloatingContact /> */}
         </div>

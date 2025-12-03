@@ -1,0 +1,107 @@
+import ProductModel from "@/lib/model/product.model";
+import categories from "./category";
+
+const data: ProductModel[] = [
+  {
+    id: 1,
+    name: "Hoa hồng đỏ",
+    description: "Bó hoa hồng đỏ tươi thắm, biểu tượng của tình yêu nồng cháy.",
+    basePrice: 500000,
+    salePrice: 450000,
+    thumbnail: "/1.png",
+    categoryId: 1,
+    statusName: "Còn hàng",
+    statusCode: "in_stock",
+    statusColor: "#28a745",
+    badgeName: "Yêu thích",
+    badgeColor: "#ff69b4",
+    badgeCode: "popular",
+  },
+  {
+    id: 2,
+    name: "Hoa cẩm chướng",
+    description:
+      "Bó hoa cẩm chướng đa sắc màu, tượng trưng cho sự ngưỡng mộ và tình bạn.",
+    basePrice: 300000,
+    salePrice: 270000,
+    thumbnail: "/2.png",
+    categoryId: 2,
+    statusName: "Còn hàng",
+    statusCode: "in_stock",
+    statusColor: "#28a745",
+    badgeName: "Mới",
+    badgeColor: "#007bff",
+    badgeCode: "new",
+  },
+  {
+    id: 3,
+    name: "Hoa ly trắng",
+    description:
+      "Bó hoa ly trắng tinh khôi, biểu tượng của sự thanh khiết và cao quý.",
+    basePrice: 400000,
+    salePrice: 360000,
+    thumbnail: "/3.png",
+    categoryId: 3,
+    statusName: "Hết hàng",
+    statusCode: "out_of_stock",
+    statusColor: "#dc3545",
+    badgeName: "Giảm giá",
+    badgeColor: "#ffc107",
+    badgeCode: "discounted",
+  },
+  {
+    id: 4,
+    name: "Hoa hướng dương",
+    description:
+      "Bó hoa hướng dương rực rỡ, tượng trưng cho sự lạc quan và niềm vui.",
+    basePrice: 350000,
+    salePrice: 315000,
+    thumbnail: "/4.png",
+    categoryId: 4,
+    statusName: "Còn hàng",
+    statusCode: "in_stock",
+    statusColor: "#28a745",
+    badgeName: "Bán chạy",
+    badgeColor: "#17a2b8",
+    badgeCode: "best_seller",
+  },
+  {
+    id: 5,
+    name: "Hoa tulip",
+    description:
+      "Bó hoa tulip đa sắc màu, biểu tượng của sự hoàn hảo và tình yêu vĩnh cửu.",
+    basePrice: 450000,
+    salePrice: 405000,
+    thumbnail: "/5.png",
+    categoryId: 1,
+    statusName: "Còn hàng",
+    statusCode: "in_stock",
+    statusColor: "#28a745",
+    badgeName: "Yêu thích",
+    badgeColor: "#ff69b4",
+    badgeCode: "popular",
+  },
+  {
+    id: 6,
+    name: "Hoa baby",
+    description:
+      "Bó hoa baby nhẹ nhàng, tượng trưng cho sự ngây thơ và tinh tế.",
+    basePrice: 250000,
+    salePrice: 225000,
+    thumbnail: "/6.png",
+    categoryId: 2,
+    statusName: "Còn hàng",
+    statusCode: "in_stock",
+    statusColor: "#28a745",
+    badgeName: "Mới",
+    badgeColor: "#007bff",
+    badgeCode: "new",
+  },
+];
+
+const products = data.map((item, index) => ({
+  ...item,
+  categoryId: index,
+  category: categories[index],
+}));
+export default products;

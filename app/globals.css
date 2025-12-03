@@ -96,7 +96,7 @@
   }
   
   .animate-loading-bar {
-    animation: loadingBar 2s ease-out forwards;
+    animation: loadingBar 1.1s ease-out forwards;
   }
   
   .animate-delay-100 {

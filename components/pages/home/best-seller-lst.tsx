@@ -350,7 +350,7 @@ export default function BestSellerList() {
           {/* Right Content - Product Details */}
           <div
             ref={productRef}
-            className={`lg:col-span-8  backdrop-blur-md rounded-2xl overflow-hidden transition-all duration-1200 ease-out ${
+            className={`lg:col-span-8 rounded-2xl overflow-hidden transition-all duration-1200 ease-out ${
               isVisible
                 ? "opacity-100 transform translate-y-0 scale-100"
                 : "opacity-0 transform translate-y-16 scale-95"
@@ -379,26 +379,11 @@ export default function BestSellerList() {
               >
                 {/* Product Image */}
                 <div
-                  className="relative p-8 flex items-center justify-center bg-gradient-to-br "
+                  className="relative p-8 flex items-center justify-center  "
                   style={{
                     transform: `translateY(${scrollY * -0.02}px)`,
                   }}
                 >
-                  {/* Image Background Effect */}
-                  <div
-                    className="absolute inset-0 opacity-20 pointer-events-none"
-                    style={{
-                      transform: `translateY(${scrollY * 0.01}px) scale(1.05)`,
-                    }}
-                  >
-                    <Image
-                      src="/api/placeholder/600/400"
-                      alt="Product background"
-                      fill
-                      className="object-cover rounded-2xl blur-sm"
-                    />
-                  </div>
-
                   <div
                     className="relative z-10"
                     style={{
@@ -410,9 +395,9 @@ export default function BestSellerList() {
                     <Image
                       src={currentProduct.image}
                       alt={currentProduct.name}
-                      width={400}
+                      width={600}
                       height={500}
-                      className="object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
+                      className="object-cover rounded-2xl hover:scale-105 transition-transform duration-500"
                     />
 
                     {/* Product Badge */}

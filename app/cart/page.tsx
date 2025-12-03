@@ -1,4 +1,4 @@
-import CartView from "@/components/art/page";
+import CartView from "@/components/pages/cart";
 
 function CartPage() {
   return <CartView />;
