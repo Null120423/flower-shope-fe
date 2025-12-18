@@ -11,8 +11,8 @@ module.exports = {
       colors: {
         // Generated range for base color ##4F4039
         primary: "#4F4039",
-        // Generated range for base color #C3DBDD
-        secondary: "#C3DBDD",
+        // Generated range for base color #FFFFFF
+        secondary: "#FFECDE",
         light: "#4F4039",
         dark: "#FFFFFF",
         "bg-primary": "#FFFCF9",

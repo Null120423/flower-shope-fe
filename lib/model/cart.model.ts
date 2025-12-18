@@ -1,10 +1,12 @@
 import BaseModel from "./base.model";
+import ProductModel from "./product.model";
 
 export interface CartProductModel extends BaseModel {
-  productId: number | string;
+  productId: string;
   quantity: number;
+  product: ProductModel;
 }
 export interface CartModel extends BaseModel {
-  customerId: number | string;
+  customerId: string;
   products: CartProductModel[];
 }

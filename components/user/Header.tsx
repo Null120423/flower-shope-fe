@@ -3,7 +3,9 @@ import { USER_ROUTES } from "@/routes/routes";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import carts from "@/mock/cart";
 import { usePathname } from "next/navigation";
+import { Badge } from "../ui";
 import TransitionLink from "../ui/TransitionLink";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,21 +79,23 @@ export default function Header() {
               {/* Icons */}
               <div className="flex items-center space-x-3">
                 <TransitionLink href="/cart">
-                  <button className="p-2 text-slate-700 hover:text-slate-900">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                      />
-                    </svg>
-                  </button>
+                  <Badge number={carts.products.length}>
+                    <button className="p-2 default-hover text-slate-700 hover:text-slate-900">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                        />
+                      </svg>
+                    </button>
+                  </Badge>
                 </TransitionLink>
                 <button className="p-2 text-slate-700 hover:text-slate-900">
                   <svg

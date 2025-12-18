@@ -513,3 +513,8 @@ input, select, textarea {
               transform: translateX(140%) rotate(25deg);
               opacity: 0.5;
             }
+
+
+.default-hover {
+  @apply scale-110 hover:text-primary;
+}

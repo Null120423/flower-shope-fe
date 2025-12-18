@@ -91,3 +91,12 @@ export const formatDataProperty = (property: any) => {
     updatedAt: property.updatedAt,
   };
 };
+
+export class Helper {
+  static formatCurrency(value: number, locale = "vi-VN", currency = "VND") {
+    return new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency,
+    }).format(value);
+  }
+}

@@ -4,7 +4,7 @@ import PostModel from "./post.model";
 import ReviewModel from "./review.model";
 
 interface ProductModel extends BaseModel {
-  id: number;
+  id: string;
   name: string;
   description: string;
   basePrice: number;
