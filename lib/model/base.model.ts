@@ -1,4 +1,4 @@
 interface BaseModel {
-  id: number | string;
+  id: string;
 }
 export default BaseModel;

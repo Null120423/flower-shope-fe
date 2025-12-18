@@ -1,9 +1,9 @@
 import ProductModel from "@/lib/model/product.model";
+import { v4 as uuidv4 } from "uuid";
 import categories from "./category";
-
 const data: ProductModel[] = [
   {
-    id: 1,
+    id: uuidv4(),
     name: "Hoa hồng đỏ",
     description: "Bó hoa hồng đỏ tươi thắm, biểu tượng của tình yêu nồng cháy.",
     basePrice: 500000,
@@ -18,7 +18,7 @@ const data: ProductModel[] = [
     badgeCode: "popular",
   },
   {
-    id: 2,
+    id: uuidv4(),
     name: "Hoa cẩm chướng",
     description:
       "Bó hoa cẩm chướng đa sắc màu, tượng trưng cho sự ngưỡng mộ và tình bạn.",
@@ -34,7 +34,7 @@ const data: ProductModel[] = [
     badgeCode: "new",
   },
   {
-    id: 3,
+    id: uuidv4(),
     name: "Hoa ly trắng",
     description:
       "Bó hoa ly trắng tinh khôi, biểu tượng của sự thanh khiết và cao quý.",
@@ -50,7 +50,7 @@ const data: ProductModel[] = [
     badgeCode: "discounted",
   },
   {
-    id: 4,
+    id: uuidv4(),
     name: "Hoa hướng dương",
     description:
       "Bó hoa hướng dương rực rỡ, tượng trưng cho sự lạc quan và niềm vui.",
@@ -66,7 +66,7 @@ const data: ProductModel[] = [
     badgeCode: "best_seller",
   },
   {
-    id: 5,
+    id: uuidv4(),
     name: "Hoa tulip",
     description:
       "Bó hoa tulip đa sắc màu, biểu tượng của sự hoàn hảo và tình yêu vĩnh cửu.",
@@ -82,7 +82,7 @@ const data: ProductModel[] = [
     badgeCode: "popular",
   },
   {
-    id: 6,
+    id: uuidv4(),
     name: "Hoa baby",
     description:
       "Bó hoa baby nhẹ nhàng, tượng trưng cho sự ngây thơ và tinh tế.",

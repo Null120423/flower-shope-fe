@@ -64,7 +64,6 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <StaticLoadingScreen />
-
         <div className="min-h-screen bg-bg-primary text-light">
           <Header />
           {children}
