@@ -1,10 +1,11 @@
 "use client";
 import WrapperView from "@/app/warpper-view";
+import CartItem from "@/components/app/CartItem";
+import Toast from "@/components/Plugin/useToast";
 import { CartModel } from "@/lib/model/cart.model";
 import carts from "@/mock/cart";
 import { ShoppingBag, Tag } from "lucide-react";
 import { useState } from "react";
-import CartItem from "./CartItem";
 import SummaryOrder from "./SummaryOrder";
 
 const routes = [
@@ -40,13 +41,29 @@ function CartView() {
         item.id === id ? { ...item, quantity: newQuantity } : item
       ),
     }));
+    Toast.info("Cập nhật số lượng thành công", {
+      duration: 2000,
+    });
   };
 
   const removeItem = (id: string) => {
+    const product = data.products.find((p) => p.id === id);
     setData((prev) => ({
       ...prev,
       products: prev.products.filter((item) => item.id !== id),
     }));
+    Toast.warning(`Đã xóa ${product?.product.name} khỏi giỏ hàng`, {
+      duration: 3000,
+      action: {
+        label: "Hoàn tác",
+        onClick: () => {
+          setData((prev) => ({
+            ...prev,
+            products: [...prev.products, product!],
+          }));
+        },
+      },
+    });
   };
 
   const toggleLike = (id: string) => {
@@ -62,8 +79,23 @@ function CartView() {
   };
 
   const applyPromoCode = () => {
+    if (!promoCode.trim()) {
+      Toast.error("Vui lòng nhập mã khuyến mãi", { duration: 2000 });
+      return;
+    }
+
     if (promoCode.toLowerCase() === "flower10") {
-      setDiscount(subtotal * 0.1);
+      const discountAmount = subtotal * 0.1;
+      setDiscount(discountAmount);
+      Toast.success("Mã khuyến mãi đã được áp dụng!", {
+        title: "Giảm giá 10%",
+        duration: 3000,
+      });
+    } else {
+      Toast.error("Mã khuyến mãi không hợp lệ", {
+        title: "Lỗi",
+        duration: 2000,
+      });
     }
   };
 

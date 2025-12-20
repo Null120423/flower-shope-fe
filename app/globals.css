@@ -386,6 +386,15 @@
   }
 }
 
+@keyframes shrink {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
 /* Enhanced responsive keyframes */
 @media (max-width: 640px) {
   @keyframes loadingBar {
