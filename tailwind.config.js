@@ -9,11 +9,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Generated range for base color ##4F4039
-        primary: "#4F4039",
+        // Generated range for base color ##F15493
+        primary: "#F15493",
         // Generated range for base color #FFFFFF
         secondary: "#FFECDE",
-        light: "#4F4039",
+        light: "#F15493",
         dark: "#FFFFFF",
         "bg-primary": "#FFFCF9",
         "bg-secondary": "#FFECDE",

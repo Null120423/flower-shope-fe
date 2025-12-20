@@ -1,3 +1,4 @@
+import ToastContainer from "@/components/Plugin/toast-container";
 import StaticLoadingScreen from "@/components/ui/StaticLoadingScreen";
 import Footer from "@/components/user/Footer";
 import Header from "@/components/user/Header";
@@ -64,6 +65,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <StaticLoadingScreen />
+        <ToastContainer />
         <div className="min-h-screen bg-bg-primary text-light">
           <Header />
           {children}

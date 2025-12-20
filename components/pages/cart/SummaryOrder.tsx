@@ -1,3 +1,4 @@
+import { ButtonPrimary } from "@/components/ui";
 import { Helper } from "@/lib/helper";
 import { ArrowRight, Gift, Shield, Tag, Truck } from "lucide-react";
 
@@ -80,11 +81,10 @@ function SummaryOrder({
             </div>
           </div>
 
-          {/* Checkout Button */}
-          <button className="w-full bg-gradient-to-r from-rose-400 to-pink-500 text-white py-4 rounded-xl font-semibold text-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center gap-2">
+          <ButtonPrimary>
             Tiến hành thanh toán
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </ButtonPrimary>
 
           {/* Trust Badges */}
           <div className="space-y-2 pt-4 border-t border-gray-100">
