@@ -1,5 +1,5 @@
 "use client";
-import ProductCard from "@/components/ui/ProductCard";
+import ProductCard from "@/components/app/ProductCard";
 import { useEffect, useRef, useState } from "react";
 
 // Product data - you can move this to a separate data file later

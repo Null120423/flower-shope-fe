@@ -1,7 +1,8 @@
 "use client";
 import { ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
-import TransitionLink from "./TransitionLink";
+import Toast from "../Plugin/useToast";
+import { ButtonPrimary } from "../ui";
 
 interface ProductCardProps {
   product: {
@@ -91,13 +92,20 @@ export default function ProductCard({
         </div>
 
         {/* Cart Button */}
-        <TransitionLink
-          href="/id"
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white hover:bg-primary text-gray-700 hover:text-white px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 z-20"
+
+        <ButtonPrimary
+          onClick={() => {
+            Toast.success("Thêm vào giỏ hàng!", {
+              duration: 2000,
+              position: "bottom-center",
+            });
+          }}
+          className="absolute opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 z-20 bottom-4 left-1/2 transform -translate-x-1/2 w-fit"
+          type="circle"
         >
           <ShoppingCartIcon className="w-4 h-4" />
           Add
-        </TransitionLink>
+        </ButtonPrimary>
 
         {/* Quick View Button */}
       </div>

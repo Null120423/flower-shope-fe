@@ -1,5 +1,6 @@
 "use client";
 
+import { ButtonPrimary } from "@/components/ui";
 import { HeroModel } from "@/lib/model";
 import {
   ArrowLeftIcon,
@@ -614,9 +615,13 @@ export default function Hero({ heros }: { heros: HeroModel[] }) {
         </div>
       </div>
       {/* Shop Now Button */}
-      <button className="btn-secondary pt-4 pb-4 justify-center items-center flex hover:scale-[150%] absolute top-[40%] right-[46%] left-[46%] z-[900000] pl-10 scale-125 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:scale-135 hover:-translate-y-1 active:scale-125">
+      <ButtonPrimary
+        type="circle"
+        className="absolute w-[12rem] top-[40%] right-[42%] left-[42%] z-[900000]"
+      >
         SHOP NOW
-      </button>
+        <ArrowRightIcon className="w-5 h-5" />
+      </ButtonPrimary>
     </section>
   );
 }

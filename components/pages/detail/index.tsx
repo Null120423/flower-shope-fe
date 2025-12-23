@@ -1,6 +1,6 @@
 "use client";
+import ProductCard from "@/components/app/ProductCard";
 import Carousel from "@/components/carousel";
-import ProductCard from "@/components/ui/ProductCard";
 import TransitionLink from "@/components/ui/TransitionLink";
 import { PRODUCT_DATA } from "@/lib/products";
 import {
