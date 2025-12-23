@@ -1,5 +1,5 @@
 import { homeDataMock } from "@/mock/home-data";
-import BestSellerList from "./best-seller-lst";
+import AboutSection from "./about";
 import Hero from "./hero";
 import ListItemSection from "./lst-item";
 import PostList from "./post-lst";
@@ -10,7 +10,7 @@ function HomeView() {
     <>
       <Hero heros={homeData.heroes} />
       <ListItemSection />
-      <BestSellerList />
+      <AboutSection />
       <PostList />
     </>
   );

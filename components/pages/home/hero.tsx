@@ -617,7 +617,7 @@ export default function Hero({ heros }: { heros: HeroModel[] }) {
       {/* Shop Now Button */}
       <ButtonPrimary
         type="circle"
-        className="absolute w-[12rem] top-[40%] right-[42%] left-[42%] z-[900000]"
+        className="absolute w-[16rem] top-[40%] right-[50%] translate-x-1/2 z-[900000]"
       >
         SHOP NOW
         <ArrowRightIcon className="w-5 h-5" />
