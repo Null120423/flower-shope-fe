@@ -81,7 +81,7 @@ function SummaryOrder({
             </div>
           </div>
 
-          <ButtonPrimary>
+          <ButtonPrimary className="w-full">
             Tiến hành thanh toán
             <ArrowRight className="w-5 h-5" />
           </ButtonPrimary>
