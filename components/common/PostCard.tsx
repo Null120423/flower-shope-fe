@@ -29,7 +29,7 @@ const PostCard = ({ post, index }: { post: FlowerPost; index: number }) => {
           </p>
           <TransitionLink
             href={`post/${post.id}`}
-            className="text-white underline hover:text-yellow-300 transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0 delay-200 flex items-center gap-2 group/btn"
+            className="text-white underline hover:text-primary transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0 delay-200 flex items-center gap-2 group/btn"
           >
             Read more
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />

@@ -431,7 +431,7 @@
   background: #94a3b8;
 }
 input, select, textarea {
-  @apply border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary transition-colors duration-200;
+  @apply border border-gray-300 rounded-lg focus:outline-none transition-colors duration-200;
 }
 
 .static-loading {
