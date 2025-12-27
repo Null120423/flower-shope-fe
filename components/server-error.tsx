@@ -1,4 +1,5 @@
 import { USER_DATA } from "@/lib/data";
+import { ROUTES } from "@/routes/routes";
 import { AlertTriangle, Home } from "lucide-react";
 import TransitionLink from "./ui/TransitionLink";
 
@@ -40,14 +41,14 @@ export default function ServerError({ error, message }: ServerErrorProps) {
         {/* Action Buttons */}
         <div className="space-y-3">
           <TransitionLink
-            href={`/`}
+            href={ROUTES.PUBLIC_ROUTES.HOME}
             className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
           >
             ← Quay lại
           </TransitionLink>
 
           <TransitionLink
-            href="/"
+            href={ROUTES.PUBLIC_ROUTES.HOME}
             className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
           >
             <Home className="w-5 h-5" />

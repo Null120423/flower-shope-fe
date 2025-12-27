@@ -1,7 +1,9 @@
 "use client";
 
 import { ButtonPrimary } from "@/components/ui";
+import TransitionLink from "@/components/ui/TransitionLink";
 import { HeroModel } from "@/lib/model";
+import { ROUTES } from "@/routes/routes";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -615,13 +617,15 @@ export default function Hero({ heros }: { heros: HeroModel[] }) {
         </div>
       </div>
       {/* Shop Now Button */}
-      <ButtonPrimary
-        type="circle"
-        className="absolute w-[16rem] top-[40%] right-[50%] translate-x-1/2 z-[900000]"
-      >
-        SHOP NOW
-        <ArrowRightIcon className="w-5 h-5" />
-      </ButtonPrimary>
+      <TransitionLink href={ROUTES.PUBLIC_ROUTES.SHOPPING}>
+        <ButtonPrimary
+          type="circle"
+          className="absolute w-[16rem] top-[40%] right-[50%] translate-x-1/2 z-[900000]"
+        >
+          SHOP NOW
+          <ArrowRightIcon className="w-5 h-5" />
+        </ButtonPrimary>
+      </TransitionLink>
     </section>
   );
 }

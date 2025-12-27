@@ -1,8 +1,9 @@
 "use client";
 
 import { ButtonPrimary, Input } from "@/components/ui";
+import TransitionLink from "@/components/ui/TransitionLink";
+import { ROUTES } from "@/routes/routes";
 import { ArrowLeft, Flower2, Lock, Mail, Sparkles } from "lucide-react";
-import Link from "next/link";
 import AuthShell from "../_components/AuthShell";
 
 const perks = [
@@ -91,24 +92,24 @@ function LoginFormCard() {
             <input type="checkbox" className="w-4 h-4 text-rose-500 rounded" />
             Ghi nhớ tôi
           </label>
-          <Link
-            href="#"
+          <TransitionLink
+            href={ROUTES.PUBLIC_ROUTES.FORGOT_PASSWORD}
             className="text-rose-600 font-semibold hover:text-rose-700"
           >
             Quên mật khẩu?
-          </Link>
+          </TransitionLink>
         </div>
 
         <ButtonPrimary className="w-full">Đăng nhập</ButtonPrimary>
 
         <p className="text-sm text-gray-600 text-center">
           Chưa có tài khoản?
-          <Link
-            href="/auth/register"
+          <TransitionLink
+            href={ROUTES.PUBLIC_ROUTES.REGISTER}
             className="text-rose-600 font-semibold ml-1 hover:text-rose-700"
           >
             Đăng ký ngay
-          </Link>
+          </TransitionLink>
         </p>
       </form>
 
@@ -121,12 +122,12 @@ function LoginFormCard() {
 
       <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500">
         <ArrowLeft className="w-4 h-4" />
-        <Link
-          href="/"
+        <TransitionLink
+          href={ROUTES.PUBLIC_ROUTES.HOME}
           className="text-rose-600 font-semibold hover:text-rose-700"
         >
           Trở về trang chủ
-        </Link>
+        </TransitionLink>
       </div>
     </>
   );

@@ -1,7 +1,8 @@
 "use client";
+import TransitionLink from "@/components/ui/TransitionLink";
+import { ROUTES } from "@/routes/routes";
 import { ArrowRight, Calendar, Clock, Eye, Filter, Search } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 interface BlogPost {
@@ -196,7 +197,10 @@ export default function BlogPage() {
               Featured Article
             </h2>
 
-            <Link href={`/post/${featuredPost.slug}`} className="group">
+            <TransitionLink
+              href={ROUTES.PUBLIC_ROUTES.BLOG_DETAIL(featuredPost.slug)}
+              className="group"
+            >
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   <div className="aspect-video lg:aspect-square relative overflow-hidden">
@@ -254,7 +258,7 @@ export default function BlogPage() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </section>
@@ -305,9 +309,9 @@ export default function BlogPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.slice(1).map((post) => (
-                <Link
+                <TransitionLink
                   key={post.id}
-                  href={`/post/${post.slug}`}
+                  href={ROUTES.PUBLIC_ROUTES.BLOG_DETAIL(post.slug)}
                   className="group bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="aspect-video relative overflow-hidden">
@@ -362,7 +366,7 @@ export default function BlogPage() {
                       </div>
                     </div>
                   </div>
-                </Link>
+                </TransitionLink>
               ))}
             </div>
 

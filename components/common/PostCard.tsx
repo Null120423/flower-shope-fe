@@ -1,3 +1,4 @@
+import { ROUTES } from "@/routes/routes";
 import { ArrowDown, ArrowRight, ArrowUp } from "lucide-react";
 import Image from "next/image";
 import { FlowerPost } from "../pages/home/post-lst";
@@ -28,7 +29,7 @@ const PostCard = ({ post, index }: { post: FlowerPost; index: number }) => {
             {post.description}
           </p>
           <TransitionLink
-            href={`post/${post.id}`}
+            href={ROUTES.PUBLIC_ROUTES.BLOG_DETAIL(post?.slug)}
             className="text-white underline hover:text-primary transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0 delay-200 flex items-center gap-2 group/btn"
           >
             Read more
