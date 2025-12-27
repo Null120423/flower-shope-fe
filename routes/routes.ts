@@ -1,16 +1,22 @@
-export const ADMIN_ROUTES = {
-  DASHBOARD: "/admin",
-  PROJECTS: "/admin/projects",
-  BLOG: "/admin/blog",
-  BOOKINGS: "/admin/bookings",
-  CONTACTS: "/admin/contacts",
+const PUBLIC_ROUTES = {
+  HOME: "/",
+  LOGIN: "/auth/login",
+  REGISTER: "/auth/register",
+  FORGOT_PASSWORD: "/auth/forgot-password",
+  SHOPPING: "/shopping",
+  BLOG: "/blog",
+  BLOG_DETAIL: (slug: string) => `/blog/${slug}`,
+  ITEM_DETAIL: (id: string) => `/item/${id}`,
+  TERM: "/terms-and-conditions",
+};
+const PRIVATE_ROUTES = {
+  DASHBOARD: "/dashboard",
+  PROFILE: "/profile",
+  CARTS: "/carts",
+  PAYMENT: "/payment",
 };
 
-export const USER_ROUTES = {
-  HOME: "/",
-  BOOKING: "/booking",
-  PROJECT_ALL: "/project/all",
-  PROJECT_DETAIL: "/project/:id",
-  BLOG_ALL: "/blog/all",
-  BLOG_DETAIL: "/:id",
+export const ROUTES = {
+  PUBLIC_ROUTES,
+  PRIVATE_ROUTES,
 };

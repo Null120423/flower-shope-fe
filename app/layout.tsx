@@ -3,6 +3,7 @@ import StaticLoadingScreen from "@/components/ui/StaticLoadingScreen";
 import Footer from "@/components/user/Footer";
 import Header from "@/components/user/Header";
 
+import { ChatBubbleButton } from "@/components/app/Chat/ChatBubbleButton";
 import InfoSection from "@/components/pages/home/info-section";
 import { LOGO, SITE_URL } from "@/lib/data";
 import { Inter } from "next/font/google";
@@ -68,11 +69,12 @@ export default function RootLayout({
         <ToastContainer />
         <div className="min-h-screen bg-bg-primary text-light">
           <Header />
-          {children}
+          <div className="pt-12"> {children} </div>
           <InfoSection />
           <Footer />
-          {/* <FloatingContact /> */}
         </div>
+        {/* Chat Bubble Button */}
+        <ChatBubbleButton />
       </body>
     </html>
   );

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ReactNode } from "react";
 import TransitionLink from "./TransitionLink";
 
@@ -43,8 +42,8 @@ export default function ServerLink({
 
   // Internal link với Next.js Link
   return (
-    <Link href={href} className={className}>
+    <TransitionLink href={href} className={className}>
       {children}
-    </Link>
+    </TransitionLink>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { ButtonPrimary, Input } from "@/components/ui";
+import TransitionLink from "@/components/ui/TransitionLink";
+import { ROUTES } from "@/routes/routes";
 import {
   ArrowLeft,
   Flower2,
@@ -9,7 +11,6 @@ import {
   ShieldCheck,
   UserPlus,
 } from "lucide-react";
-import Link from "next/link";
 import AuthShell from "../_components/AuthShell";
 
 const highlights = [
@@ -118,21 +119,20 @@ function RegisterFormCard() {
           />
           <span>
             Tôi đồng ý với các
-            <Link
-              href="#"
+            <TransitionLink
+              href={ROUTES.PUBLIC_ROUTES.TERM}
               className="text-rose-600 font-semibold hover:text-rose-700"
             >
-              {" "}
               điều khoản
-            </Link>
+            </TransitionLink>
             <span> và</span>
-            <Link
-              href="#"
+            <TransitionLink
+              href={ROUTES.PUBLIC_ROUTES.TERM}
               className="text-rose-600 font-semibold hover:text-rose-700"
             >
               {" "}
               chính sách bảo mật
-            </Link>
+            </TransitionLink>
             <span> của FlowerShop.</span>
           </span>
         </label>
@@ -141,23 +141,23 @@ function RegisterFormCard() {
 
         <p className="text-sm text-gray-600 text-center">
           Đã có tài khoản?
-          <Link
-            href="/auth/login"
+          <TransitionLink
+            href={ROUTES.PUBLIC_ROUTES.LOGIN}
             className="text-rose-600 font-semibold ml-1 hover:text-rose-700"
           >
             Đăng nhập ngay
-          </Link>
+          </TransitionLink>
         </p>
       </form>
 
       <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500">
         <ArrowLeft className="w-4 h-4" />
-        <Link
-          href="/"
+        <TransitionLink
+          href={ROUTES.PUBLIC_ROUTES.HOME}
           className="text-rose-600 font-semibold hover:text-rose-700"
         >
           Trở về trang chủ
-        </Link>
+        </TransitionLink>
       </div>
     </>
   );

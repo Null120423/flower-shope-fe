@@ -1,9 +1,9 @@
 "use client";
-import { USER_ROUTES } from "@/routes/routes";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import carts from "@/mock/cart";
+import { ROUTES } from "@/routes/routes";
 import { usePathname } from "next/navigation";
 import { Badge } from "../ui";
 import TransitionLink from "../ui/TransitionLink";
@@ -23,14 +23,14 @@ export default function Header() {
   }, []);
 
   const menuItems = [
-    { name: "Home", href: USER_ROUTES.HOME },
+    { name: "Home", href: ROUTES.PUBLIC_ROUTES.HOME },
     {
       name: "About",
-      href: "#about",
+      href: ROUTES.PUBLIC_ROUTES.HOME + "#about",
     },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Blog", href: "#blog" },
-    { name: "Profile", href: "#profile" },
+    { name: "Portfolio", href: ROUTES.PUBLIC_ROUTES.HOME + "#portfolio" },
+    { name: "Blog", href: ROUTES.PUBLIC_ROUTES.HOME + "#blog" },
+    { name: "Profile", href: ROUTES.PUBLIC_ROUTES.HOME + "#profile" },
   ];
 
   return (
@@ -55,7 +55,7 @@ export default function Header() {
             {/* Center: Brand/Logo */}
             <div className="flex-1 flex justify-center">
               <TransitionLink
-                href={USER_ROUTES.HOME}
+                href={ROUTES.PUBLIC_ROUTES.HOME}
                 className="text-lg font-semibold text-slate-900 tracking-wide"
               >
                 Daise.

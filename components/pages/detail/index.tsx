@@ -3,6 +3,7 @@ import ProductCard from "@/components/app/ProductCard";
 import Carousel from "@/components/carousel";
 import TransitionLink from "@/components/ui/TransitionLink";
 import { PRODUCT_DATA } from "@/lib/products";
+import { ROUTES } from "@/routes/routes";
 import {
   ArrowLeft,
   Award,
@@ -92,7 +93,7 @@ function DetailPage({ params }: { params: { id: string } }) {
       <div className="container mx-auto px-6 py-8">
         <div className="flex items-center justify-between mb-8">
           <TransitionLink
-            href="/"
+            href={ROUTES.PUBLIC_ROUTES.HOME}
             className="flex items-center gap-2 text-primary hover:text-teal-600 transition-colors duration-300"
           >
             <ArrowLeft className="w-5 h-5" />

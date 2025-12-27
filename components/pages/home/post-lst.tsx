@@ -11,6 +11,7 @@ export interface FlowerPost {
   views: number;
   likes: number;
   featured?: boolean;
+  slug: string;
 }
 
 export default function PostList() {
@@ -26,6 +27,7 @@ export default function PostList() {
       views: 1200,
       likes: 89,
       featured: true,
+      slug: "spring-arrangements",
     },
     {
       id: 2,
@@ -37,6 +39,7 @@ export default function PostList() {
       readTime: "8 min read",
       views: 2400,
       likes: 156,
+      slug: "wedding-bouquets",
     },
     {
       id: 3,
@@ -49,6 +52,7 @@ export default function PostList() {
       views: 980,
       likes: 73,
       featured: true,
+      slug: "care-tips-guide",
     },
     {
       id: 4,
@@ -60,6 +64,7 @@ export default function PostList() {
       readTime: "4 min read",
       views: 1800,
       likes: 124,
+      slug: "rose-collection",
     },
     {
       id: 5,
@@ -71,6 +76,7 @@ export default function PostList() {
       readTime: "7 min read",
       views: 650,
       likes: 45,
+      slug: "corporate-events",
     },
   ];
 
