@@ -17,6 +17,8 @@ module.exports = {
         dark: "#FFFFFF",
         "bg-primary": "#FFFCF9",
         "bg-secondary": "#FFECDE",
+        "t-light" : "#212830",
+        "t-dark" : "#D1D7E0",
       },
       gradients: "",
     },

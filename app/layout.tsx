@@ -69,7 +69,7 @@ export default function RootLayout({
         <ToastContainer />
         <div className="min-h-screen bg-bg-primary text-light">
           <Header />
-          <div className="pt-12"> {children} </div>
+          <div> {children} </div>
           <InfoSection />
           <Footer />
         </div>

@@ -1,4 +1,5 @@
 "use client";
+import WrapperView from "@/app/warpper-view";
 import Toast from "@/components/Plugin/useToast";
 import categories from "@/mock/category";
 import products from "@/mock/products";
@@ -6,6 +7,10 @@ import { useState } from "react";
 import { FilterBar } from "./_components/FilterBar";
 import { ProductGrid } from "./_components/ProductGrid";
 
+const routes = [
+  { href: "/", label: "Home" },
+  { href: "/shopping", label: "Shopping" },
+]
 function ShoppingView() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPrice, setSelectedPrice] = useState<string>("");
@@ -35,16 +40,14 @@ function ShoppingView() {
 
   // Render
   return (
-    <div className="min-h-screen bg-gray-50">
+    <WrapperView routes={routes}>
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-4">
+      <div className="mx-auto px-4 py-4">
           <h1 className="text-3xl font-bold text-gray-900">🌸 Hoa</h1>
           <p className="text-gray-600 text-sm mt-1">
             Tìm kiếm hoa hoàn hảo cho bạn
           </p>
         </div>
-      </div>
 
       {/* Filters */}
       <FilterBar
@@ -61,35 +64,13 @@ function ShoppingView() {
       />
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Products Grid */}
           <ProductGrid
             products={products}
             likedProducts={likedProducts}
             onToggleLike={toggleLike}
             onAddToCart={handleAddToCart}
           />
-        </div>
-      </div>
-
-      {/* Custom Scrollbar Styles */}
-      <style jsx>{`
-        ::-webkit-scrollbar {
-          width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-          background: #e5e7eb;
-          border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-          background: #d1d5db;
-        }
-      `}</style>
-    </div>
+    </WrapperView>
   );
 }
 

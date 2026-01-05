@@ -1,8 +1,9 @@
 "use client";
+import { ROUTES } from "@/routes/routes";
 import { ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
-import Toast from "../Plugin/useToast";
 import { ButtonPrimary } from "../ui";
+import TransitionLink from "../ui/TransitionLink";
 
 interface ProductCardProps {
   product: {
@@ -28,17 +29,18 @@ export default function ProductCard({
   onAddToCart,
   onClick,
 }: ProductCardProps) {
-  const handleAddToCart = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleAddToCart = () => {
     onAddToCart?.(product.id);
   };
 
   const handleClick = () => {
+    
     onClick?.(product.id);
   };
 
   return (
-    <div
+    <TransitionLink href={ROUTES.PUBLIC_ROUTES.ITEM_DETAIL(product.id.toString())}>
+      <div
       className={`group relative rounded-3xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 cursor-pointer ${
         isVisible
           ? "opacity-100 transform translate-y-0 scale-100"
@@ -61,7 +63,7 @@ export default function ProductCard({
 
       {/* Product Image Container */}
       <div
-        className={`${product.bgColor} h-[25rem] p-4 w-full rounded-[150px] mb-6 relative overflow-hidden group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl`}
+        className={`${product.bgColor} h-[25rem] p-4 w-full rounded-[150px] mb-6 relative overflow-hidden group-hover:scale-105 transition-transform duration-300 group-hover:shadow-xl`}
         style={{
           transform: `translateY(${scrollY * -0.03}px) rotateX(${
             scrollY * 0.01
@@ -94,12 +96,7 @@ export default function ProductCard({
         {/* Cart Button */}
 
         <ButtonPrimary
-          onClick={() => {
-            Toast.success("Thêm vào giỏ hàng!", {
-              duration: 2000,
-              position: "bottom-center",
-            });
-          }}
+          onClick={handleAddToCart}
           className="absolute opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 z-20 bottom-4 left-1/2 transform -translate-x-1/2 w-fit"
           type="circle"
         >
@@ -129,6 +126,7 @@ export default function ProductCard({
           <span className="text-gray-500 text-sm ml-1">(4.8)</span>
         </div>
       </div>
-    </div>
+      </div>
+    </TransitionLink>
   );
 }

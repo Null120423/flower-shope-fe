@@ -1,0 +1,10 @@
+node_modules
+.next
+build
+dist
+*.min.css
+*.min.js
+.git
+.yarn
+.husky
+coverage

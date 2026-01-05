@@ -40,10 +40,10 @@ export default function Header() {
           isScrolled ? "shadow-lg border-b z-[1000] backdrop-blur-2xl" : "z-50"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 ">
             {/* Left: First nav item */}
-            <div className="hidden md:flex">
+            <div className="hidden md:flex flex-[0.3] justify-start">
               <TransitionLink
                 href="#about"
                 className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors"
@@ -53,7 +53,7 @@ export default function Header() {
             </div>
 
             {/* Center: Brand/Logo */}
-            <div className="flex-1 flex justify-center">
+            <div className="flex justify-center flex-[0.7]">
               <TransitionLink
                 href={ROUTES.PUBLIC_ROUTES.HOME}
                 className="text-lg font-semibold text-slate-900 tracking-wide"
@@ -63,15 +63,9 @@ export default function Header() {
             </div>
 
             {/* Right: Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8 flex-[0.3] justify-end">
               <TransitionLink
-                href="#portfolio"
-                className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors"
-              >
-                Catalog
-              </TransitionLink>
-              <TransitionLink
-                href="#blog"
+                href={ROUTES.PUBLIC_ROUTES.ABOUT}
                 className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors"
               >
                 About

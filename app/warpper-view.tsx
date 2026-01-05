@@ -9,7 +9,7 @@ function WrapperView({
 }) {
   return (
     <div
-      className="max-w-7xl mx-auto space-x-2 px-8 py-2"
+      className="max-w-[95rem] mx-auto space-x-2 px-8 py-2"
       style={{
         paddingTop: "4rem",
       }}

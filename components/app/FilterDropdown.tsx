@@ -24,7 +24,7 @@ export function FilterDropdown({
         onClick={onToggle}
         className="px-3 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2 transition-colors"
       >
-        {label}
+        {value || label}
         <ChevronDown className="w-4 h-4" />
       </button>
       {isOpen && (

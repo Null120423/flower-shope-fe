@@ -8,6 +8,7 @@ const PUBLIC_ROUTES = {
   BLOG_DETAIL: (slug: string) => `/blog/${slug}`,
   ITEM_DETAIL: (id: string) => `/item/${id}`,
   TERM: "/terms-and-conditions",
+  ABOUT: "/about",
 };
 const PRIVATE_ROUTES = {
   DASHBOARD: "/dashboard",
