@@ -6,6 +6,8 @@ const nextConfig = {
       "images.pexels.com",
       "via.placeholder.com",
       "pub-8522858fd58049a6b24d543265789c51.r2.dev",
+      'media-cdn-v2.laodong.vn',
+      'product.hstatic.net'
     ],
     remotePatterns: [
       {
