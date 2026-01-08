@@ -108,10 +108,10 @@ export function ChatSidebar({
             </div>
 
             {/* Suggestions */}
-            {messages[messages.length - 1]?.suggestions && (
+            {messages.length > 0 && messages[messages.length - 1]?.suggestions && (
               <div className="p-3 border-t border-gray-200 bg-white">
                 <div className="space-y-2">
-                  {messages[messages.length - 1]?.suggestions.map(
+                  {messages[messages.length - 1]?.suggestions?.map(
                     (suggestion, idx) => (
                       <motion.button
                         key={idx}

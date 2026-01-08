@@ -72,7 +72,7 @@ export default function Header() {
               </TransitionLink>
               {/* Icons */}
               <div className="flex items-center space-x-3">
-                <TransitionLink href="/cart">
+                <TransitionLink href={ROUTES.PRIVATE_ROUTES.CARTS}>
                   <Badge number={carts.products.length}>
                     <button className="p-2 default-hover text-slate-700 hover:text-slate-900">
                       <svg
@@ -91,7 +91,8 @@ export default function Header() {
                     </button>
                   </Badge>
                 </TransitionLink>
-                <button className="p-2 text-slate-700 hover:text-slate-900">
+             <TransitionLink href={ROUTES.PRIVATE_ROUTES.PROFILE}>
+                 <button className="p-2 text-slate-700 hover:text-slate-900">
                   <svg
                     className="w-5 h-5"
                     fill="none"
@@ -106,6 +107,7 @@ export default function Header() {
                     />
                   </svg>
                 </button>
+             </TransitionLink>
               </div>
             </div>
 

@@ -95,7 +95,7 @@ export default function ListItemSection() {
     >
       {/* Gradient Overlay */}
       <div
-        className="absolute inset-0 z-2 bg-gradient-to-br from-white/95 via-white/90 to-pink-50/95 pointer-events-none"
+        className="absolute inset-0 z-2  pointer-events-none"
         style={{
           transform: `translateY(${scrollY * 0.05}px)`,
         }}

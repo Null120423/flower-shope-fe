@@ -81,7 +81,7 @@ export default function PostList() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-bg-primary to-bg-secondary py-16 px-6">
+    <section className=" py-16 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">

@@ -7,12 +7,12 @@ import PostList from "./post-lst";
 function HomeView() {
   const homeData = homeDataMock;
   return (
-    <>
+    <div className="">
       <Hero heros={homeData.heroes} />
       <ListItemSection />
       <AboutSection />
       <PostList />
-    </>
+    </div>
   );
 }
 

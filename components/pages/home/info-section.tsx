@@ -1,7 +1,7 @@
 /** make a slogan for shop flower */
 function InfoSection() {
   return (
-    <section className="flex justify-center items-center flex-col relative">
+    <div className="flex bg-gradient-to-b from-pink-50 via-white to-rose-50 text-light justify-center items-center flex-col relative bg-transparent">
       <div className="text-[#FFF5EC] justify-center flex  absolute font-semibold text-[10rem] left-0 right-0 bottom-0 top-0">
         Beautiful Flowers
       </div>
@@ -17,7 +17,7 @@ function InfoSection() {
           Shop Now
         </h2>
       </div>
-    </section>
+    </div>
   );
 }
 

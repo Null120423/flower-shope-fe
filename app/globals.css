@@ -297,6 +297,30 @@ h1, h2, h3, h4, h5, h6, p, span, a, li, div, button, input, textarea, label, sel
   }
 }
 
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes bubblePulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 4px 20px rgba(251, 113, 133, 0.2), 0 0 30px rgba(244, 114, 182, 0.2);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 6px 25px rgba(251, 113, 133, 0.5), 0 0 50px rgba(244, 114, 182, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(251, 113, 133, 0.4), 0 0 40px rgba(244, 114, 182, 0.3);
+  }
+}
+
 @keyframes pageEnter {
   from {
     opacity: 0;

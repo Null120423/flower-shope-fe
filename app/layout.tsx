@@ -64,10 +64,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className + ' bg-gradient-to-b from-pink-50 via-white to-rose-50 text-light'}>
         <StaticLoadingScreen />
         <ToastContainer />
-        <div className="min-h-screen bg-bg-primary text-light">
+        <div className="bg-gradient-to-b from-pink-50 via-white to-rose-50 text-light">
           <Header />
           <div> {children} </div>
           <InfoSection />

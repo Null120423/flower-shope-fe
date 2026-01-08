@@ -9,6 +9,7 @@ const PUBLIC_ROUTES = {
   ITEM_DETAIL: (id: string) => `/item/${id}`,
   TERM: "/terms-and-conditions",
   ABOUT: "/about",
+  PROFILE: '/profile',
 };
 const PRIVATE_ROUTES = {
   DASHBOARD: "/dashboard",

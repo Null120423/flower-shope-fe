@@ -9,7 +9,7 @@ interface BreadcrumbProps {
 }
 function Breadcrumb({ routes }: BreadcrumbProps) {
   return (
-    <div className="w-full flex items-center space-x-2 py-2 text-sm shadow-sm">
+    <div className="w-full flex items-center space-x-2 py-2 text-sm mb-2">
       {routes.map((route, index) => (
         <TransitionLink href={route.href} className="flex items-center">
           <span className={`text-sm hover:underline ${index > 0 ? 'font-bold ' : ''}`}>
